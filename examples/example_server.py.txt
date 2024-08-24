@@ -1,0 +1,33 @@
+import ssl
+import socket
+
+def run_server():
+    # Create SSL context for the server
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    context.load_cert_chain(certfile="certs/server.crt", keyfile="certs/server.key")
+
+    # Create a socket and bind it to the address
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0) as sock:
+        sock.bind(('0.0.0.0', 8443))
+        sock.listen(5)
+        print("Server listening on port 8443...")
+
+        # Wait for a client to connect
+        with context.wrap_socket(sock, server_side=True) as ssock:
+            conn, addr = ssock.accept()
+            print(f"Connection established with {addr}")
+
+            # Receive a message from the client
+            data = conn.recv(1024)
+            print(f"Received: {data.decode('utf-8')}")
+
+            # Send a response back to the client
+            response = "Hello, SecureNet Client!"
+            conn.sendall(response.encode('utf-8'))
+            print(f"Sent: {response}")
+
+            # Close the connection
+            conn.close()
+
+if __name__ == "__main__":
+    run_server()
