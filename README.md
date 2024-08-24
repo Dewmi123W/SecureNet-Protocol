@@ -23,7 +23,7 @@ Clone the Repository:
 
 bash
 Copy code
-git clone https://github.com/yourusername/SecureNet-Protocol.git
+git clone https://github.com/Dewmi123W/SecureNet-Protocol.git
 cd SecureNet-Protocol
 Set Up the Environment:
 
