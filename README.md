@@ -1,4 +1,4 @@
-# SecureNet-Protocol1
+# SecureNet-Protocol
 Blueprint - SecureNet Protocol (SNP) for IIoT environments in smart grids, ensuring secure communication via TLS
 # SecureNet-Protocol
 Blueprint - SecureNet Protocol (SNP) for IIoT environments in smart grids, ensuring secure communication via TLS
